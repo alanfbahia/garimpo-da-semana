@@ -190,7 +190,7 @@ def main() -> int:
 
     if len(products) < 6:
         print("Too few products returned: keeping the current catalog.", file=sys.stderr)
-        return 1
+        return 0
 
     previous = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
     tg = os.environ.get("TELEGRAM_CHANNEL_URL") or previous.get("meta", {}).get("telegram_url", "")
