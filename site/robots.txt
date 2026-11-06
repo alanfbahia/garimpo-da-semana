@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://garimpodasemana.com/sitemap.xml
