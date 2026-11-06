@@ -5,7 +5,7 @@ on:
     - cron: "23 9 * * *"   # every day 06:23 Brasilia
   push:
     branches: [main]
-    paths: ["site/**", "data/mercadolivre.json", "scripts/update_catalog.py"]
+    paths: ["site/**", "data/*.json", "scripts/update_catalog.py"]
   workflow_dispatch:
 
 permissions:

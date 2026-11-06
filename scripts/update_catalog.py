@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "site" / "data" / "products.json"
-ML_FILE = ROOT / "data" / "mercadolivre.json"
+MANUAL_FILES = {"mercadolivre": ROOT / "data" / "mercadolivre.json", "shopee": ROOT / "data" / "shopee.json"}
 ENDPOINT = "https://open-api.affiliate.shopee.com.br/graphql"
 BRT = timezone(timedelta(hours=-3))
 
@@ -132,19 +132,21 @@ def normalize_shopee(node: dict, category: str) -> dict | None:
     }
 
 
-def load_mercadolivre() -> list[dict]:
-    if not ML_FILE.exists():
+def load_manual(store: str) -> list[dict]:
+    """Items whose affiliate links were generated in the store's affiliate portal."""
+    path = MANUAL_FILES[store]
+    if not path.exists():
         return []
-    items = json.loads(ML_FILE.read_text(encoding="utf-8")).get("items", [])
+    items = json.loads(path.read_text(encoding="utf-8")).get("items", [])
     out = []
     for i, it in enumerate(items):
         if not it.get("url", "").startswith("https://") or not it.get("title") or not it.get("price"):
             continue
         out.append({
-            "id": it.get("id") or f"ml-{i}",
+            "id": it.get("id") or f"{store[:2]}-m{i}",
             "title": it["title"][:120],
             "category": it.get("category", "casa"),
-            "store": "mercadolivre",
+            "store": store,
             "price": float(it["price"]),
             "old_price": float(it["old_price"]) if it.get("old_price") else None,
             "rating": float(it.get("rating") or 0),
@@ -162,13 +164,13 @@ def main() -> int:
     secret = os.environ.get("SHOPEE_APP_SECRET", "")
     mock_path = os.environ.get("SHOPEE_MOCK_FILE")
     mock = json.loads(Path(mock_path).read_text(encoding="utf-8")) if mock_path else None
-    if mock is None and not (app_id and secret):
-        print("SHOPEE_APP_ID / SHOPEE_APP_SECRET not set: keeping the current catalog.")
-        return 0
+    use_api = mock is not None or bool(app_id and secret)
+    if not use_api:
+        print("Shopee API keys not set: using data/shopee.json only.")
 
     products: list[dict] = []
     seen: set[str] = set()
-    for cat_id, (_, keywords) in CATEGORIES.items():
+    for cat_id, (_, keywords) in (CATEGORIES.items() if use_api else []):
         bucket = []
         for kw in keywords:
             for node in fetch_keyword(kw, app_id, secret, mock):
@@ -180,9 +182,11 @@ def main() -> int:
         products.extend(bucket[:PER_CATEGORY])
         print(f"{cat_id}: {min(len(bucket), PER_CATEGORY)} Shopee items")
 
-    ml = load_mercadolivre()
-    products.extend(ml)
-    print(f"mercadolivre: {len(ml)} items")
+    for store in ("shopee", "mercadolivre"):
+        manual = [m for m in load_manual(store) if m["id"] not in seen]
+        seen.update(m["id"] for m in manual)
+        products.extend(manual)
+        print(f"{store} (portal links): {len(manual)} items")
 
     if len(products) < 6:
         print("Too few products returned: keeping the current catalog.", file=sys.stderr)
