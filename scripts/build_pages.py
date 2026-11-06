@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 BASE = "https://garimpodasemana.com"
+FEED_SIZE = 15  # pins per weekly refresh; keeps the Pinterest account from bursting
 STORE = {"shopee": "Shopee", "mercadolivre": "Mercado Livre"}
 CSP = ("default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; "
        "img-src 'self' data: https://*.susercontent.com https://cf.shopee.com.br https://*.mlstatic.com; "
@@ -157,9 +158,13 @@ def main() -> int:
         related = [r for r in products if r["category"] == p["category"] and r["id"] != p["id"]][:6]
         (out / f"{safe_id(p)}.html").write_text(page(p, cats, related), encoding="utf-8")
 
-    now = format_datetime(datetime.now(timezone.utc))
+    # Stable timestamp (catalog date) so re-running the build does not change the file.
+    upd = data.get("meta", {}).get("updated_at")
+    now = format_datetime(datetime.fromisoformat(upd) if upd else datetime.now(timezone.utc))
     items = []
     for p in sorted(products, key=lambda x: (discount(x), x.get("sold", 0)), reverse=True):
+        if len(items) >= FEED_SIZE:
+            break
         img = jpg(safe_image(p.get("image", "")))
         if not img:
             continue
