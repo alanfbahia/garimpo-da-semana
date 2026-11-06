@@ -5,7 +5,7 @@ on:
     - cron: "23 9 * * *"   # every day 06:23 Brasilia
   push:
     branches: [main]
-    paths: ["site/**", "data/mercadolivre.json", "data/shopee.json", "scripts/update_catalog.py", ".github/workflows/site.yml"]
+    paths: ["site/**", "data/mercadolivre.json", "data/shopee.json", "scripts/update_catalog.py", "scripts/build_pages.py", ".github/workflows/site.yml"]
   workflow_dispatch:
 
 permissions:
@@ -31,11 +31,13 @@ jobs:
           SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
           TELEGRAM_CHANNEL_URL: ${{ vars.TELEGRAM_CHANNEL_URL || secrets.TELEGRAM_CHANNEL_URL }}
         run: python scripts/update_catalog.py
+      - name: Build product pages, feed and sitemap
+        run: python scripts/build_pages.py
       - name: Commit catalog
         run: |
           git config user.name "garimpo-bot"
           git config user.email "garimpo-bot@users.noreply.github.com"
-          git add site/data/products.json
+          git add site/data/products.json site/p site/feed.xml site/sitemap.xml
           git diff --cached --quiet || (git commit -m "Update catalog" && git pull --rebase && git push)
 
   deploy:

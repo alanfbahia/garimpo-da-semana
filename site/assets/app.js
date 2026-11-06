@@ -120,7 +120,15 @@
 
     var body = el("div", "card-body");
     body.appendChild(el("span", "store " + p.store, STORE_LABEL[p.store] || p.store));
-    body.appendChild(el("h3", "title", p.title));
+    var h = el("h3", "title");
+    if (link && !(data.meta || {}).demo && /^[A-Za-z0-9-]+$/.test(p.id)) {
+      var pl = el("a", null, p.title);
+      pl.href = "/p/" + p.id + ".html";
+      h.appendChild(pl);
+    } else {
+      h.textContent = p.title;
+    }
+    body.appendChild(h);
 
     var meta = el("div", "meta");
     if (p.rating) {

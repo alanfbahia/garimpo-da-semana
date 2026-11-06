@@ -44,7 +44,7 @@ button, input { font: inherit; }
 .header { background: var(--brand); position: sticky; top: 0; z-index: 20; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
 .header .wrap { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; padding-top: 12px; padding-bottom: 12px; }
 .logo { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
-.logo-mark { width: 40px; height: 40px; }
+.logo-mark { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 0 0 2px rgba(255,255,255,.9); }
 .logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: -.3px; }
 .logo-text small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .4px; opacity: .9; margin-top: 3px; }
 .search { display: flex; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: inset 0 0 0 2px #fff; }
@@ -174,3 +174,28 @@ button, input { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .card, .card:hover { transition: none; transform: none; }
 }
+
+/* Product page */
+.crumbs { font-size: 13px; color: var(--muted); margin: 16px 0 0; }
+.crumbs a { color: var(--brand-dark); }
+.pd { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 28px; align-items: start; }
+.pd-img { position: relative; aspect-ratio: 1 / 1; background: #faf8f6; border-radius: 10px; overflow: hidden; display: grid; place-items: center; }
+.pd-img img { width: 100%; height: 100%; object-fit: contain; }
+.pd-body { display: flex; flex-direction: column; gap: 10px; }
+.pd-body h1 { font-family: var(--font-display); font-size: 26px; line-height: 1.2; margin: 0; text-wrap: balance; }
+.pd-body .price-now { font-size: 34px; }
+.pd-cta { font-size: 17px; padding: 14px 18px; max-width: 360px; }
+.pd-note { font-size: 12px; color: var(--muted); max-width: 60ch; }
+.rel-h { font-family: var(--font-display); font-size: 20px; margin: 0 0 12px; }
+.rel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.rel { display: flex; justify-content: space-between; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+.rel:hover { border-color: var(--brand); }
+.rel-t { font-size: 14px; }
+.rel-p { font-weight: 700; white-space: nowrap; }
+.title a { text-decoration: none; }
+.title a:hover { color: var(--brand-dark); text-decoration: underline; }
+@media (max-width: 760px) { .pd { grid-template-columns: 1fr; } }
+.header .wrap.wrap-simple { grid-template-columns: 1fr auto; }
+.doc { max-width: 760px; margin-left: auto; margin-right: auto; }
+.doc h1 { font-family: var(--font-display); margin-top: 0; }
+.doc-back { margin-top: 24px; }
