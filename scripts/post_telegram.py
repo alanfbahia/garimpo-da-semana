@@ -69,8 +69,11 @@ def api(token: str, method: str, params: dict) -> dict:
 
 
 def main() -> int:
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat = os.environ.get("TELEGRAM_CHAT_ID", "")
+    # Pasted secrets often carry stray spaces or line breaks: remove all whitespace.
+    token = "".join(os.environ.get("TELEGRAM_BOT_TOKEN", "").split())
+    chat = "".join(os.environ.get("TELEGRAM_CHAT_ID", "").split())
+    if chat and not chat.startswith("@") and not chat.lstrip("-").isdigit():
+        chat = "@" + chat.rsplit("/", 1)[-1]  # accept "garimpodasemana" or a t.me link
     dry = os.environ.get("DRY_RUN") == "1"
     per_run = int(os.environ.get("POSTS_PER_RUN", "2"))
     if not dry and not (token and chat):

@@ -193,7 +193,7 @@ def main() -> int:
         return 0
 
     previous = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
-    tg = os.environ.get("TELEGRAM_CHANNEL_URL") or previous.get("meta", {}).get("telegram_url", "")
+    tg = "".join((os.environ.get("TELEGRAM_CHANNEL_URL") or "").split()) or previous.get("meta", {}).get("telegram_url", "")
     catalog = {
         "meta": {"updated_at": datetime.now(BRT).isoformat(timespec="seconds"), "demo": False, "telegram_url": tg},
         "categories": [{"id": k, "label": v[0]} for k, v in CATEGORIES.items()],
