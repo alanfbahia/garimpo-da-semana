@@ -1,0 +1,37 @@
+name: Post deals to Telegram
+
+on:
+  schedule:
+    - cron: "17 12 * * *"  # 09:17 Brasilia
+    - cron: "17 15 * * *"  # 12:17
+    - cron: "17 21 * * *"  # 18:17
+    - cron: "17 0 * * *"   # 21:17
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          POSTS_PER_RUN: "2"
+        run: python scripts/post_telegram.py
+      - name: Save history
+        run: |
+          git config user.name "garimpo-bot"
+          git config user.email "garimpo-bot@users.noreply.github.com"
+          git add data/posted.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Telegram post history" && git pull --rebase && git push)

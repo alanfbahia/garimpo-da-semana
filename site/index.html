@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--CSP-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.susercontent.com https://cf.shopee.com.br https://*.mlstatic.com; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'">
+<!--/CSP-->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Garimpo da Semana</title>
+<meta name="description" content="Os produtos mais vendidos da Shopee e do Mercado Livre, separados por categoria e atualizados toda semana. Ofertas, achados até R$ 50 e Black Friday.">
+<meta property="og:title" content="Garimpo da Semana: os mais vendidos da Shopee e do Mercado Livre">
+<meta property="og:description" content="Achados e ofertas mais vendidos, atualizados toda semana.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f26b1d'/%3E%3Cpath d='M32 12l14 14-14 26-14-26z' fill='%23ffc533'/%3E%3Cpath d='M18 26h28L32 52z' fill='%23fff' opacity='.55'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Rubik:wght@600;700&display=swap">
+<!--STYLE--><link rel="stylesheet" href="assets/style.css"><!--/STYLE-->
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="wrap">
+    <span>Os mais vendidos da Shopee e do Mercado Livre, atualizados toda semana</span>
+    <a href="politica-privacidade.html">Como funcionam nossos links</a>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="Garimpo da Semana, página inicial">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#fff"/>
+        <path d="M32 12l14 14-14 26-14-26z" fill="#f26b1d"/>
+        <path d="M18 26h28L32 52z" fill="#ffc533"/>
+        <path d="M24 26l8-14 8 14z" fill="#c9520e" opacity=".55"/>
+      </svg>
+      <span class="logo-text">garimpo<small>DA SEMANA</small></span>
+    </a>
+
+    <form class="search" role="search" id="search-form">
+      <label for="q">Buscar produto</label>
+      <input id="q" type="search" placeholder="Buscar nos mais vendidos: fone, mop, areia de gato…" autocomplete="off">
+      <button type="submit" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+    </form>
+
+    <a class="cta-tg" id="tg-header" href="#canal" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 4.3L2.9 11.5c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.4.9.9.9.4 0 .6-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8l3.2-15.1c.3-1.3-.5-1.9-1.8-1.7zM9.6 14.3l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.5-.3 3-1.7-4.3z"/></svg>
+      <span><span class="tg-label-long">Canal de </span>ofertas</span>
+    </a>
+  </div>
+</header>
+
+<nav class="cats" aria-label="Categorias">
+  <div class="wrap" id="cat-chips"></div>
+</nav>
+
+<main class="wrap">
+  <p class="demo-note" id="demo-note" hidden>Prévia do layout: os produtos e preços abaixo são exemplos. Na versão no ar, a lista é preenchida automaticamente com os mais vendidos reais e os seus links de afiliado.</p>
+
+  <section class="bf" aria-labelledby="bf-title">
+    <div>
+      <div class="bf-kicker">Black Friday 2026 · 27 de novembro</div>
+      <h2 id="bf-title">As maiores quedas de preço do ano estão chegando</h2>
+      <p>Estamos acompanhando os mais vendidos todo dia. Entre no canal de ofertas para receber os descontos assim que aparecerem.</p>
+    </div>
+    <div class="countdown" id="countdown" aria-live="off">
+      <div class="cd-box"><div class="cd-num" data-k="d">00</div><div class="cd-lbl">dias</div></div>
+      <div class="cd-box"><div class="cd-num" data-k="h">00</div><div class="cd-lbl">horas</div></div>
+      <div class="cd-box"><div class="cd-num" data-k="m">00</div><div class="cd-lbl">min</div></div>
+      <div class="cd-box"><div class="cd-num" data-k="s">00</div><div class="cd-lbl">seg</div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="flash-title">
+    <div class="section-head">
+      <h2 id="flash-title"><svg class="bolt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg><span class="flash-title">Maiores descontos</span></h2>
+      <span class="sub">Ordenado pelo maior desconto entre os mais vendidos</span>
+    </div>
+    <div class="rail" id="flash"></div>
+  </section>
+
+  <section class="section" aria-labelledby="top-title">
+    <div class="section-head">
+      <div>
+        <h2 id="top-title">Mais vendidos da semana</h2>
+        <span class="updated" id="updated"></span>
+      </div>
+      <div class="store-tabs" role="group" aria-label="Filtrar por loja" id="store-tabs">
+        <button type="button" data-store="all" aria-pressed="true">Todas</button>
+        <button type="button" data-store="shopee" aria-pressed="false">Shopee</button>
+        <button type="button" data-store="mercadolivre" aria-pressed="false">Mercado Livre</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="section" aria-labelledby="cheap-title">
+    <div class="section-head">
+      <h2 id="cheap-title">Achados até R$ 50</h2>
+      <span class="sub">Bons de nota e baratos</span>
+    </div>
+    <div class="rail" id="cheap"></div>
+  </section>
+
+  <div class="trust">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+      <p><strong>Atualizado toda semana</strong><span>A lista sai dos rankings de mais vendidos de cada loja.</span></p>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg>
+      <p><strong>Só produto bem avaliado</strong><span>Entram itens com nota 4,5 ou mais e muitas vendas.</span></p>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <p><strong>Compra direto na loja</strong><span>Você paga no site oficial da Shopee ou do Mercado Livre, com a proteção deles.</span></p>
+    </div>
+  </div>
+
+  <section class="tg-band" id="canal" aria-labelledby="tg-title">
+    <div>
+      <h2 id="tg-title">Receba as ofertas no celular</h2>
+      <p>De 4 a 6 achados por dia no nosso canal. Grátis, sem spam e você sai quando quiser.</p>
+    </div>
+    <a class="cta-tg" id="tg-band" href="#canal" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 4.3L2.9 11.5c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.4.9.9.9.4 0 .6-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8l3.2-15.1c.3-1.3-.5-1.9-1.8-1.7zM9.6 14.3l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.5-.3 3-1.7-4.3z"/></svg>
+      Entrar no canal do Telegram
+    </a>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <h3>Transparência</h3>
+      <p>O Garimpo da Semana participa dos programas de afiliados da Shopee e do Mercado Livre. Quando você compra por um link daqui, podemos receber uma comissão da loja. O preço para você é o mesmo.</p>
+      <p>Preços, estoque e frete mudam a qualquer momento e são definidos pelas lojas. Confira o valor final na página do produto antes de comprar.</p>
+    </div>
+    <div>
+      <h3>Informações</h3>
+      <p><a href="politica-privacidade.html">Política de privacidade e links de afiliado</a></p>
+      <p>Contato: <span id="contact-email">contato@garimpodasemana.com.br</span></p>
+    </div>
+    <p class="legal">Shopee e Mercado Livre são marcas de seus respectivos donos. Este site é independente e não é operado por nenhuma das lojas. © <span id="year">2026</span> Garimpo da Semana.</p>
+  </div>
+</footer>
+
+<!--DATA--><!--/DATA-->
+<!--SCRIPT--><script src="assets/app.js" defer></script><!--/SCRIPT-->
+</body>
+</html>

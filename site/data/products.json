@@ -1,0 +1,406 @@
+{
+ "meta": {
+  "updated_at": "2026-11-05T21:00:00-03:00",
+  "demo": true,
+  "telegram_url": ""
+ },
+ "categories": [
+  {
+   "id": "casa",
+   "label": "Casa"
+  },
+  {
+   "id": "pet",
+   "label": "Pet"
+  },
+  {
+   "id": "beleza",
+   "label": "Beleza"
+  },
+  {
+   "id": "tecnologia",
+   "label": "Tecnologia"
+  },
+  {
+   "id": "auto",
+   "label": "Auto e Moto"
+  },
+  {
+   "id": "moda",
+   "label": "Moda"
+  },
+  {
+   "id": "esporte",
+   "label": "Esporte e Saúde"
+  }
+ ],
+ "products": [
+  {
+   "id": "demo-1",
+   "title": "Areia sanitária biodegradável para gatos 4 kg",
+   "category": "pet",
+   "store": "shopee",
+   "price": 39.9,
+   "old_price": 59.9,
+   "rating": 4.9,
+   "sold": 12400,
+   "free_shipping": true,
+   "tags": [
+    "areia",
+    "gato"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Areia%20sanit%C3%A1ria%20biodegrad%C3%A1vel%20para%20gatos%204%20kg"
+  },
+  {
+   "id": "demo-2",
+   "title": "Cortina blackout 2,80 x 1,80 m com ilhós",
+   "category": "casa",
+   "store": "shopee",
+   "price": 54.9,
+   "old_price": 99.9,
+   "rating": 4.8,
+   "sold": 9800,
+   "free_shipping": true,
+   "tags": [
+    "cortina"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Cortina%20blackout%202%2C80%20x%201%2C80%20m%20com%20ilh%C3%B3s"
+  },
+  {
+   "id": "demo-3",
+   "title": "Mop giratório com balde e 2 refis",
+   "category": "casa",
+   "store": "mercadolivre",
+   "price": 89.9,
+   "old_price": 149.9,
+   "rating": 4.7,
+   "sold": 21000,
+   "free_shipping": true,
+   "tags": [
+    "mop",
+    "limpeza"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Mop-girat%C3%B3rio-com-balde-e-2-refis"
+  },
+  {
+   "id": "demo-4",
+   "title": "Kit 6 organizadores acrílicos para geladeira",
+   "category": "casa",
+   "store": "shopee",
+   "price": 44.9,
+   "old_price": 79.9,
+   "rating": 4.8,
+   "sold": 7600,
+   "free_shipping": true,
+   "tags": [
+    "organizador",
+    "cozinha"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Kit%206%20organizadores%20acr%C3%ADlicos%20para%20geladeira"
+  },
+  {
+   "id": "demo-5",
+   "title": "Difusor elétrico de aromas + 3 óleos essenciais",
+   "category": "beleza",
+   "store": "shopee",
+   "price": 49.9,
+   "old_price": 89.9,
+   "rating": 4.7,
+   "sold": 6100,
+   "free_shipping": true,
+   "tags": [
+    "difusor",
+    "aroma"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Difusor%20el%C3%A9trico%20de%20aromas%20%2B%203%20%C3%B3leos%20essenciais"
+  },
+  {
+   "id": "demo-6",
+   "title": "Protetor solar em bastão FPS 50 15 g",
+   "category": "beleza",
+   "store": "mercadolivre",
+   "price": 42.9,
+   "old_price": 59.9,
+   "rating": 4.8,
+   "sold": 8300,
+   "free_shipping": true,
+   "tags": [
+    "protetor solar"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Protetor-solar-em-bast%C3%A3o-FPS-50-15-g"
+  },
+  {
+   "id": "demo-7",
+   "title": "Sérum facial vitamina C 30 ml",
+   "category": "beleza",
+   "store": "shopee",
+   "price": 29.9,
+   "old_price": 49.9,
+   "rating": 4.7,
+   "sold": 15200,
+   "free_shipping": true,
+   "tags": [
+    "serum",
+    "pele"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=S%C3%A9rum%20facial%20vitamina%20C%2030%20ml"
+  },
+  {
+   "id": "demo-8",
+   "title": "Lanterna LED recarregável alta potência",
+   "category": "casa",
+   "store": "shopee",
+   "price": 34.9,
+   "old_price": 69.9,
+   "rating": 4.6,
+   "sold": 11300,
+   "free_shipping": false,
+   "tags": [
+    "lanterna"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Lanterna%20LED%20recarreg%C3%A1vel%20alta%20pot%C3%AAncia"
+  },
+  {
+   "id": "demo-9",
+   "title": "Par de retrovisores para moto, rosca universal",
+   "category": "auto",
+   "store": "shopee",
+   "price": 27.9,
+   "old_price": 45.9,
+   "rating": 4.6,
+   "sold": 8900,
+   "free_shipping": false,
+   "tags": [
+    "moto",
+    "retrovisor"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Par%20de%20retrovisores%20para%20moto%2C%20rosca%20universal"
+  },
+  {
+   "id": "demo-10",
+   "title": "Caixa de som Bluetooth portátil à prova d'água",
+   "category": "tecnologia",
+   "store": "mercadolivre",
+   "price": 129.9,
+   "old_price": 219.9,
+   "rating": 4.7,
+   "sold": 17500,
+   "free_shipping": true,
+   "tags": [
+    "caixa de som",
+    "bluetooth"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Caixa-de-som-Bluetooth-port%C3%A1til-%C3%A0-prova-d%27%C3%A1gua"
+  },
+  {
+   "id": "demo-11",
+   "title": "Câmera de segurança Wi-Fi 360° com visão noturna",
+   "category": "tecnologia",
+   "store": "mercadolivre",
+   "price": 119.9,
+   "old_price": 199.9,
+   "rating": 4.6,
+   "sold": 13800,
+   "free_shipping": true,
+   "tags": [
+    "camera",
+    "seguranca"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/C%C3%A2mera-de-seguran%C3%A7a-Wi-Fi-360%C2%B0-com-vis%C3%A3o-noturna"
+  },
+  {
+   "id": "demo-12",
+   "title": "Jogo de lençol casal 400 fios, 4 peças",
+   "category": "casa",
+   "store": "shopee",
+   "price": 79.9,
+   "old_price": 139.9,
+   "rating": 4.7,
+   "sold": 24600,
+   "free_shipping": true,
+   "tags": [
+    "lencol",
+    "cama"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Jogo%20de%20len%C3%A7ol%20casal%20400%20fios%2C%204%20pe%C3%A7as"
+  },
+  {
+   "id": "demo-13",
+   "title": "Creatina monohidratada 300 g",
+   "category": "esporte",
+   "store": "mercadolivre",
+   "price": 69.9,
+   "old_price": 99.9,
+   "rating": 4.9,
+   "sold": 32000,
+   "free_shipping": true,
+   "tags": [
+    "creatina",
+    "suplemento"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Creatina-monohidratada-300-g"
+  },
+  {
+   "id": "demo-14",
+   "title": "Fone de ouvido Bluetooth sem fio com estojo",
+   "category": "tecnologia",
+   "store": "shopee",
+   "price": 59.9,
+   "old_price": 129.9,
+   "rating": 4.6,
+   "sold": 28700,
+   "free_shipping": true,
+   "tags": [
+    "fone"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Fone%20de%20ouvido%20Bluetooth%20sem%20fio%20com%20estojo"
+  },
+  {
+   "id": "demo-15",
+   "title": "Mouse sem fio silencioso recarregável",
+   "category": "tecnologia",
+   "store": "mercadolivre",
+   "price": 45.9,
+   "old_price": 69.9,
+   "rating": 4.7,
+   "sold": 9400,
+   "free_shipping": true,
+   "tags": [
+    "mouse"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Mouse-sem-fio-silencioso-recarreg%C3%A1vel"
+  },
+  {
+   "id": "demo-16",
+   "title": "Cama nuvem para pet, tamanho M",
+   "category": "pet",
+   "store": "shopee",
+   "price": 64.9,
+   "old_price": 119.9,
+   "rating": 4.8,
+   "sold": 5200,
+   "free_shipping": true,
+   "tags": [
+    "cama",
+    "cachorro",
+    "gato"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Cama%20nuvem%20para%20pet%2C%20tamanho%20M"
+  },
+  {
+   "id": "demo-17",
+   "title": "Comedouro elevado duplo para cães e gatos",
+   "category": "pet",
+   "store": "mercadolivre",
+   "price": 39.9,
+   "old_price": 54.9,
+   "rating": 4.8,
+   "sold": 4700,
+   "free_shipping": true,
+   "tags": [
+    "comedouro"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Comedouro-elevado-duplo-para-c%C3%A3es-e-gatos"
+  },
+  {
+   "id": "demo-18",
+   "title": "Kit 12 pares de meias cano curto",
+   "category": "moda",
+   "store": "shopee",
+   "price": 36.9,
+   "old_price": 59.9,
+   "rating": 4.7,
+   "sold": 19300,
+   "free_shipping": true,
+   "tags": [
+    "meia"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Kit%2012%20pares%20de%20meias%20cano%20curto"
+  },
+  {
+   "id": "demo-19",
+   "title": "Calça jeans feminina wide leg",
+   "category": "moda",
+   "store": "shopee",
+   "price": 79.9,
+   "old_price": 119.9,
+   "rating": 4.6,
+   "sold": 6800,
+   "free_shipping": true,
+   "tags": [
+    "calca",
+    "jeans"
+   ],
+   "image": "",
+   "url": "https://shopee.com.br/search?keyword=Cal%C3%A7a%20jeans%20feminina%20wide%20leg"
+  },
+  {
+   "id": "demo-20",
+   "title": "Capa de chuva para motociclista, conjunto",
+   "category": "auto",
+   "store": "mercadolivre",
+   "price": 89.9,
+   "old_price": 129.9,
+   "rating": 4.7,
+   "sold": 7100,
+   "free_shipping": true,
+   "tags": [
+    "moto",
+    "chuva"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Capa-de-chuva-para-motociclista%2C-conjunto"
+  },
+  {
+   "id": "demo-21",
+   "title": "Garrafa térmica inox 1 L",
+   "category": "esporte",
+   "store": "mercadolivre",
+   "price": 49.9,
+   "old_price": 79.9,
+   "rating": 4.8,
+   "sold": 10200,
+   "free_shipping": true,
+   "tags": [
+    "garrafa"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Garrafa-t%C3%A9rmica-inox-1-L"
+  },
+  {
+   "id": "demo-22",
+   "title": "Escova secadora 3 em 1",
+   "category": "beleza",
+   "store": "mercadolivre",
+   "price": 119.9,
+   "old_price": 199.9,
+   "rating": 4.7,
+   "sold": 11900,
+   "free_shipping": true,
+   "tags": [
+    "escova",
+    "cabelo"
+   ],
+   "image": "",
+   "url": "https://lista.mercadolivre.com.br/Escova-secadora-3-em-1"
+  }
+ ]
+}
