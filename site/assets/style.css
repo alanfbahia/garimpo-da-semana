@@ -199,3 +199,7 @@ button, input { font: inherit; }
 .doc { max-width: 760px; margin-left: auto; margin-right: auto; }
 .doc h1 { font-family: var(--font-display); margin-top: 0; }
 .doc-back { margin-top: 24px; }
+.bf-h1 { font-family: var(--font-display); font-size: 34px; line-height: 1.1; margin: 6px 0 8px; text-wrap: balance; }
+.card-img { text-decoration: none; }
+.bf-link { display: inline-block; margin-top: 14px; background: var(--gold); color: #6a3a00; font-weight: 800; padding: 10px 16px; border-radius: 8px; text-decoration: none; position: relative; z-index: 1; }
+.bf-link:hover { background: #ffd666; }

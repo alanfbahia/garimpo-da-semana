@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name "garimpo-bot"
           git config user.email "garimpo-bot@users.noreply.github.com"
-          git add site/data/products.json site/p site/feed.xml site/sitemap.xml
+          git add site/data/products.json site/p site/feed.xml site/sitemap.xml site/black-friday.html
           git diff --cached --quiet || (git commit -m "Update catalog" && git pull --rebase && git push)
 
   deploy:
