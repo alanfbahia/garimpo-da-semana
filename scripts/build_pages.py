@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 BASE = "https://garimpodasemana.com"
+CHECKED = ""
 FEED_SIZE = 15  # pins per weekly refresh; keeps the Pinterest account from bursting
 STORE = {"shopee": "Shopee", "mercadolivre": "Mercado Livre"}
 CSP = ("default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; "
@@ -131,7 +132,7 @@ def page(p: dict, cats: dict, related: list[dict]) -> str:
       {f'<p class="price-old">R$ {brl(p["old_price"])}</p>' if off >= 5 else ''}
       <p class="price"><span class="price-now"><span class="cur">R$</span>{brl(p['price'])}</span>{f' <span class="price-off">{off}% OFF</span>' if off >= 5 else ''}</p>
       {f'<a class="btn-buy {p["store"]} pd-cta" href="{esc(link)}" target="_blank" rel="sponsored nofollow noopener noreferrer">{cta}</a>' if link else ''}
-      <p class="pd-note">Preço consultado em {datetime.now(timezone.utc).astimezone().strftime('%d/%m/%Y')}. O valor final, o frete e o estoque são definidos pela loja. Link de afiliado: podemos receber comissão, sem custo extra para você.</p>
+      <p class="pd-note">Preço consultado em {CHECKED}. O valor final, o frete e o estoque são definidos pela loja. Link de afiliado: podemos receber comissão, sem custo extra para você.</p>
     </div>
   </article>
   {f'<section class="section"><h2 class="rel-h">Outros mais vendidos</h2><div class="rel-grid">{rel}</div></section>' if rel else ''}
@@ -147,6 +148,9 @@ def main() -> int:
     if data.get("meta", {}).get("demo"):
         print("Demo catalog: skipping product pages.")
         return 0
+    global CHECKED
+    upd = data.get("meta", {}).get("updated_at", "")
+    CHECKED = f"{upd[8:10]}/{upd[5:7]}/{upd[0:4]}" if len(upd) >= 10 else "data recente"
     products = [p for p in data["products"] if safe_link(p.get("url", ""))]
     cats = {c["id"]: c["label"] for c in data.get("categories", [])}
 
