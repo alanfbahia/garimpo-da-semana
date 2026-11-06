@@ -5,7 +5,7 @@ on:
     - cron: "23 9 * * *"   # every day 06:23 Brasilia
   push:
     branches: [main]
-    paths: ["site/**", "data/*.json", "scripts/update_catalog.py"]
+    paths: ["site/**", "data/mercadolivre.json", "data/shopee.json", "scripts/update_catalog.py", ".github/workflows/site.yml"]
   workflow_dispatch:
 
 permissions:
@@ -29,7 +29,7 @@ jobs:
         env:
           SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
           SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
-          TELEGRAM_CHANNEL_URL: ${{ vars.TELEGRAM_CHANNEL_URL }}
+          TELEGRAM_CHANNEL_URL: ${{ vars.TELEGRAM_CHANNEL_URL || secrets.TELEGRAM_CHANNEL_URL }}
         run: python scripts/update_catalog.py
       - name: Commit catalog
         run: |
