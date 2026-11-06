@@ -60,6 +60,10 @@ def brl(v: float) -> str:
     return f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def na(store_key: str) -> str:
+    return "no Mercado Livre" if store_key == "mercadolivre" else "na Shopee"
+
+
 def discount(p: dict) -> int:
     old = p.get("old_price") or 0
     return round((1 - p["price"] / old) * 100) if old > p["price"] else 0
@@ -78,7 +82,7 @@ def page(p: dict, cats: dict, related: list[dict]) -> str:
     off = discount(p)
     store = STORE[p["store"]]
     cta = f"Ver no {store}" if p["store"] == "mercadolivre" else f"Ver na {store}"
-    desc = f"{p['title']} por R$ {brl(p['price'])} na {store}" + (f", {off}% OFF" if off >= 5 else "") + ". Um dos mais vendidos da semana."
+    desc = f"{p['title']} por R$ {brl(p['price'])} {na(p['store'])}" + (f", {off}% OFF" if off >= 5 else "") + ". Um dos mais vendidos da semana."
     facts = []
     if p.get("rating"):
         facts.append(f"★ {str(p['rating']).replace('.', ',')}")
@@ -160,7 +164,7 @@ def main() -> int:
         if not img:
             continue
         off = discount(p)
-        desc = f"{p['title']} por R$ {brl(p['price'])} na {STORE[p['store']]}" + (f" ({off}% OFF)" if off >= 5 else "") + \
+        desc = f"{p['title']} por R$ {brl(p['price'])} {na(p['store'])}" + (f" ({off}% OFF)" if off >= 5 else "") + \
                f". {sold_text(p.get('sold', 0))}. Veja mais achados em garimpodasemana.com"
         items.append(f"""  <item>
     <title>{esc(p['title'])}</title>
