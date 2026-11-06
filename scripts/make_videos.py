@@ -132,7 +132,8 @@ def product_card(p: dict, rank: int, photo: Image.Image | None) -> Image.Image:
     d.rounded_rectangle(card, radius=48, fill="white")
     if photo:
         ph = photo.copy()
-        ph.thumbnail((W - 220, 780))
+        scale = min((W - 220) / ph.width, 780 / ph.height)  # fit the card, enlarging small photos
+        ph = ph.resize((max(1, int(ph.width * scale)), max(1, int(ph.height * scale))), Image.LANCZOS)
         img.paste(ph, ((W - ph.width) // 2, 300 + (860 - ph.height) // 2))
     off = discount(p)
     if off >= 5:
